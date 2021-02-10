@@ -1,0 +1,75 @@
+<div class="mdc-dialog"	id="filter-dialog">
+  <div class="mdc-dialog__container">
+    <div class="mdc-dialog__surface">
+      <!-- Title cannot contain leading whitespace due to mdc-typography-baseline-top() -->
+      <h4 class="mdc-dialog__title" id="dialog-title"><!--
+     -->Preferences<!--
+   --></h4>
+      <div class="mdc-dialog__content" id="dialog-form">
+        <div>
+        Show
+        <select class='preference' id="Type">
+            {% for type in route_type%}
+                <option value="{{ type }}">{{ type|lower }}</option>
+            {% endfor %}
+        </select>
+        routes
+        </div>
+        <div>
+        lasting
+        <select class='preference' id="Duration">
+            <!'duration'>
+
+            <option value = 'less than 3'>less than 3</option>
+            <option value = '3 to 6'>3 to 6</option>
+            <option value = 'more than 6'>more than 6</option>
+        </select>
+        hours
+        </div>
+        <div>
+        within
+        <select class='preference' id="MaxTravelTime">
+            <!'max_travel_time'>
+
+            <option value = 0.5>0.5</option>
+            <option value = 1>1</option>
+            <option value = 1.5>1.5</option>
+            <option value = 2>2</option>
+            <option value = 2.5>2.5</option>
+            <option value = 3>3</option>
+            <option value = 3.5>3.5</option>
+            <option value = 4>4</option>
+        </select>
+        hours of
+        <select class='preference' id="Home">
+            <!'home'>
+            <option value = "Zurich">Zurich</option>
+            <option value = "Geneva">Geneva</option>
+            <option value = "Basel">Basel</option>
+            <option value = "Lausanne">Lausanne</option>
+            <option value = "Bern">Bern</option>
+            <option value = "Luzern">Luzern</option>
+            <option value = "St_Gallen">St. Gallen</option>
+            <option value = "Lugano">Lugano</option>
+            <option value = "Chur">Chur</option>
+            <option value = "Brig">Brig</option>
+            <option value = "Sion">Sion</option>
+        </select>
+        </div>
+        <div>
+        Weather forecast:
+        <select class='preference' id="HikeDate"></select>
+        </div>
+      </div>
+      <div class="mdc-dialog__actions">
+        <button type="button" class="mdc-button mdc-dialog__button" id="cancel-button">
+          <span class="mdc-button__label">Cancel</span>
+        </button>
+        <button type="button" class="mdc-button mdc-dialog__button" id="filter-button">
+          <span class="mdc-button__label">Filter</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="mdc-dialog__scrim"></div>
+</div>

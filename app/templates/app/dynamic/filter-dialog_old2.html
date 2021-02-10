@@ -1,0 +1,68 @@
+<div class="mdc-dialog"	id="filter-dialog">
+  <div class="mdc-dialog__container">
+    <div class="mdc-dialog__surface">
+      <!-- Title cannot contain leading whitespace due to mdc-typography-baseline-top() -->
+      <h4 class="mdc-dialog__title" id="dialog-title"><!--
+     -->Preferences<!--
+   --></h4>
+      <form class="mdc-dialog__content"
+           id="dialog-form" action="{% url 'index' %}"
+           method="post">
+        <div>
+        Show
+        <select class='preference' id="Type">
+            {% for route_type in route_constraints.route_types%}
+                <option value="{{ route_type }}"{%if route_type == "Mountain" %}selected {% endif %}>
+                    {{ route_type|lower }}
+                </option>
+            {% endfor %}
+        </select>
+        routes
+        </div>
+        <div>
+        lasting
+        <select class='preference' id="Duration">
+            {% for duration in route_constraints.durations%}
+                <option value="{{ duration }}" {%if duration == "3 to 6" %}selected{% endif %}>
+                    {{ duration }}
+                </option>
+            {% endfor %}
+        </select>
+        hours
+        </div>
+        <div>
+        within
+        <select class='preference' id="MaxTravelTime">
+            {% for max_travel_time in route_constraints.max_travel_times%}
+                <option value="{{ max_travel_time }}"  {%if max_travel_time == 2.5 %}selected{% endif %}>
+                    {{ max_travel_time }}
+                </option>
+            {% endfor %}
+        </select>
+        hours of
+        <select class='preference' id="Home">
+            {% for home in route_constraints.homes%}
+                <option value="{{ home }}" {%if home == "Zurich" %}selected{% endif %}>
+                    {{ home }}
+                </option>
+            {% endfor %}
+        </select>
+        </div>
+        <div>
+        Weather forecast:
+        <select class='preference' id="HikeDate"></select>
+        </div>
+      </form>
+      <div class="mdc-dialog__actions">
+        <button type="button" class="mdc-button mdc-dialog__button" id="cancel-button">
+          <span class="mdc-button__label">Cancel</span>
+        </button>
+        <input type="submit">
+        <button type="button" class="mdc-button mdc-dialog__button" id="filter-button">
+          <span class="mdc-button__label">Filter</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="mdc-dialog__scrim"></div>
+</div>

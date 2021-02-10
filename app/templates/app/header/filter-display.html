@@ -1,0 +1,11 @@
+<div id="filter-display">
+  <i id="filter-icon" class="material-icons">filter_list</i>
+  <span id="filter-description">
+    {%if prefs%}
+      Showing {{prefs.route_type}} routes within
+      {{prefs.max_travel_time}} hours of {{prefs.home}}
+    {%else%}
+      Click here to filter.
+    {%endif%}
+  </span>
+</div>

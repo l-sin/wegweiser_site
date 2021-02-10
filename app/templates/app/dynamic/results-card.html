@@ -1,0 +1,94 @@
+ {% load str_to_json %}
+
+<div class="template" id="route-card">
+	<a href="{{result.url}}" >
+		<div id="route-name">
+			<b>{{result.start.get.name}} -- {{result.end.get.name}}</b>
+			<span> | </span>
+			<b>{{ result.duration }}</b>
+		</div>
+	</a>
+	<div id="route-details">
+		<div>
+			{% with result.start.get.weather|str_to_json as weather %}
+				{% for k,v in weather.items%}
+					{% if prefs %}
+						{% if k == prefs.weather_forecast %}
+							{{k}}: {{v.status}}, {{v.temperature}}&#xb0;C
+						{% endif %}
+					{% elif forloop.first %}
+						{{k}}: {{v.status}}, {{v.temperature}}&#xb0;C
+					{%endif%}
+				{%endfor%}
+			{%endwith%}
+		</div>
+		{% if prefs %}
+			{% with result.start.get.travel|str_to_json as travel %}
+				{% for k,v in travel.items %}
+					{% if k == prefs.home %}
+						<div>
+							<span>Home to </span>
+							{{result.start.get.name}}
+							<span>: </span>
+							{{ v.go_time }}
+						</div>
+
+						<div>
+							{{result.end.get.name}}
+							<span> to home: </span>
+							{{ v.back_time }}
+						</div>
+					{% endif %}
+				{% endfor %}
+			{% endwith %}
+		{% endif %}
+	</div>
+</div>
+
+<!--
+<div class="template" id="route-card">
+	<a data-fir-link="url">
+		<div id="route-name">
+			<b data-fir-content="start"></b>
+			<b> -- </b>
+			<b data-fir-content="end"></b>
+			|
+			<span data-fir-content="duration/hours"></span>
+			<span>h</span>
+			<span data-fir-content="duration/minutes"></span>
+			<span>m</span>
+		</div>
+	</a>
+	<div id="route-details">
+		<div>
+		<span data-fir-content="start_weather/status"></span>
+		<span>, </span>
+		<span data-fir-content="start_weather/temperature"></span>
+		<span>C</span>
+		</div>
+
+		<div>
+		<span>Home to </span>
+		<span data-fir-content="start"></span>
+		<span>: </span>
+		<span data-fir-content="time_to_start/hours"></span>
+		<span>h</span>
+		<span data-fir-content="time_to_start/minutes"></span>
+		<span>m</span>
+		</div>
+
+		<div>
+		<span data-fir-content="end"></span>
+		<span> to home: </span>
+		<span data-fir-content="time_from_end/hours"></span>
+		<span>h</span>
+		<span data-fir-content="time_from_end/minutes"></span>
+		<span>m</span>
+		</div>
+		<div hidden id="coords">
+		<span data-fir-content="coords/E" id="coordE"></span>
+		<span data-fir-content="coords/N" id="coordN"></span>
+		</div>
+	</div>
+</div>
+-->

@@ -1,0 +1,41 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+	{% include 'app/head.html' %}
+</head>
+<body>
+<div id="container">
+  	<header>{% include 'app/header/header.html' with prefs=prefs %}</header>
+
+  	<div class="main"><div id="results">
+	{% for result in results %}
+		{% include 'app/dynamic/results-card.html' with result=result form=form%}
+	{% endfor %}
+	</div></div>
+
+  	<div class="footer">{% include 'app/footer/footer.html' %}</div>
+
+	{% include 'app/dynamic/filter-dialog.html' %}
+
+	<div hidden class="template" id="final-message">
+	<b id="message"></b>
+	</div>
+
+</div>
+
+<script src="{% static 'app/scripts/Wegweiser.js' %}"></script>
+<script src="{% static 'app/scripts/Wegweiser.View.js' %}"></script>
+
+</body>
+</html>
+
+
+
+<!--
+<ul>
+{% for route in route_list%}
+	<li><a href="https://schweizmobil.ch{{ route.url }}">Link</a></li>
+{% endfor %}
+</ul>
+-->

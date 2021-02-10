@@ -1,0 +1,32 @@
+<div class="mdc-dialog"	id="filter-dialog">
+  <div class="mdc-dialog__container">
+    <div class="mdc-dialog__surface">
+      <!-- Title cannot contain leading whitespace due to mdc-typography-baseline-top() -->
+      <h4 class="mdc-dialog__title" id="dialog-title"><!--
+     -->Preferences<!--
+   --></h4>
+        <form class="mdc-dialog__content" id="dialog-form"
+              action="{% url 'index' %}" method="POST">
+            {% csrf_token %}
+            <div> Show {{ form.route_type }} routes </div>
+            <div> lasting {{ form.duration_range }} hours </div>
+            <div> within {{ form.max_travel_time }} hours of {{ form.home }} </div>
+            <div> Weather forecast: {{ form.weather_forecast }} </div>
+
+            <div class="mdc-dialog__actions">
+                <button type="button" class="mdc-button mdc-dialog__button"
+                        id="cancel-button">
+                    <span class="mdc-button__label">Cancel</span>
+                </button>
+
+                <button type="button" class="mdc-button mdc-dialog__button"
+                        id="filter-button">
+                    <input type="submit">
+                </button>
+            </div>
+        </form>
+
+    </div>
+  </div>
+  <div class="mdc-dialog__scrim"></div>
+</div>

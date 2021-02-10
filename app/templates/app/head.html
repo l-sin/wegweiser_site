@@ -1,0 +1,47 @@
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-141693529-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-141693529-1');
+</script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wegweiser - Swiss day-hike planner</title>
+<meta name="description" content="Wegweiser is a web application that recommends one-day hikes in Switzerland based on weather conditions, and your preferences of travel time, route type, and route duration.">
+<!-- Disable tap highlight on IE -->
+<meta name="msapplication-tap-highlight" content="no">
+<! {% load static %} >
+<link rel="icon" href="{% static 'app/images/favicon.png' %}">
+
+<!-- Web Application Manifest -->
+<link rel="manifest" href="manifest.json">
+
+<!-- Add to homescreen for Chrome on Android -->
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="Wegweiser">
+<meta name="theme-color" content="#d1a50c">
+
+<!-- Add to homescreen for Safari on iOS -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Wegweiser">
+<meta name="apple-mobile-web-app-status-bar-style" content="#d1a50c">
+
+<!-- Tile icon for Win8 -->
+<!-- <meta name="msapplication-TileColor" content="#3372DF">
+<meta name="msapplication-navbutton-color" content="#303F9F"> -->
+
+<!-- Material Design Components -->
+<link rel="stylesheet"
+href="https://unpkg.com/material-components-web@2.3.0/dist/material-components-web.min.css">
+<script src="https://unpkg.com/material-components-web@2.3.0/dist/material-components-web.js"></script>
+
+<!-- App Styling -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'app/styles/main.css' %}">
