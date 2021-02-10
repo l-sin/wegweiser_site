@@ -12,10 +12,20 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
-from .secret_settings import SECRET_KEY,DATABASES
+import os
 
-# SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = secrets.SECRET_KEY
+SECRET_KEY = os.getenv('SECRET_KEY')
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd9g6metuogbcfh',
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': 'ec2-46-137-84-140.eu-west-1.compute.amazonaws.com',
+        'PORT': '5432'
+    }
+}
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,7 +37,7 @@ DATA_DIR = os.path.abspath(os.path.join(BASE_DIR, '../wegweiser/db'))
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG')
 
 ALLOWED_HOSTS = []
 
