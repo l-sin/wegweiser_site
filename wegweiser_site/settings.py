@@ -12,8 +12,10 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
-from secrets import *
+from .secret_settings import SECRET_KEY,DATABASES
 
+# SECURITY WARNING: keep the secret key used in production secret!
+#SECRET_KEY = secrets.SECRET_KEY
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -75,7 +77,7 @@ WSGI_APPLICATION = 'wegweiser_site.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
+#DATABASES = secrets.DATABASES
 
 
 

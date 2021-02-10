@@ -3,7 +3,6 @@ from app.models import Node,Edge
 from joblib import load
 from django.conf import settings
 import os
-import numpy as np
 
 data_dir = settings.DATA_DIR
 
