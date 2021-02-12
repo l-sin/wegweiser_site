@@ -1,0 +1,1 @@
+web: gunicorn wegweiser_site.wsgi
